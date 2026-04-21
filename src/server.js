@@ -1,4 +1,6 @@
+require('dotenv').config();
 const express = require('express');
+const connectDB = require('./config/db');
 
 //creation of the application
 const app = express();
@@ -12,6 +14,9 @@ app.get('/health', (req, res) => {
 });
 
 //start the server
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
-})
+connectDB().then(() => {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
+});
