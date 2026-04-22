@@ -1,4 +1,4 @@
-const ModelVersion = require ('../models/ModelVersionModel');
+const ModelVersion = require ('../models/ModelVersion');
 
 const getModelVersions = async (req, res) => {
     try{

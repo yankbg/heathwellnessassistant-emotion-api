@@ -17,6 +17,14 @@ app.get('/health', (req, res) => {
 
 app.use('/api', routes);
 
+// Handle 404 for undefined routes
+app.use((req, res) => {
+    res.status(404).json({
+        success: false,
+        message: 'Route not found'
+    });
+});
+
 //start the server
 connectDB().then(() => {
     const PORT = process.env.PORT || 3000;
