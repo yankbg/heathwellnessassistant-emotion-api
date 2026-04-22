@@ -1,4 +1,4 @@
-const feedback = require('../models/feedbackModel');
+const Feedback = require('../models/feedbackModel');
 
 const saveFeedback = async (req, res) => {
     try {

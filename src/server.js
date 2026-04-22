@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const connectDB = require('./config/db');
+const routes = require('./routes/index');
 
 //creation of the application
 const app = express();
@@ -12,6 +13,9 @@ app.use(express.json());
 app.get('/health', (req, res) => {
     res.json({status: 'success', message: 'Welcome to the Health and Wellness Assistant Emotion API!'});
 });
+
+
+app.use('/api', routes);
 
 //start the server
 connectDB().then(() => {
